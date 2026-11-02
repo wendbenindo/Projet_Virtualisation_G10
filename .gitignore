@@ -1,0 +1,46 @@
+# Vagrant
+.vagrant/
+
+# Configuration générée
+config/noeuds.yml
+
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+venv/
+env/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documents (sujet, brouillons)
+#*.pdf
+#*.docx
+#*.doc
+#*.pptx
+#*.ppt
+#*.xlsx
+#*.xls
+
+# Fichiers temporaires
+*~
+*.swp
+*.swo
+*.tmp
+.idea/
+.vscode/
+1.pdf
+1.docx

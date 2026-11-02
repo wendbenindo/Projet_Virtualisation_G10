@@ -1,0 +1,18 @@
+# Gestion des fins de ligne
+* text=auto
+
+# Scripts shell : LF
+*.sh text eol=lf
+
+# Fichiers Ruby : LF
+Vagrantfile text eol=lf
+
+# Fichiers YAML : LF
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Fichiers Python : LF
+*.py text eol=lf
+
+# Fichiers SQL : LF
+*.sql text eol=lf
