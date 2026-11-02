@@ -2,6 +2,10 @@
 
 Scripts pour valider les exigences du projet (V1 à V6).
 
+## ⚠️ Important
+- Fichiers à créer : `test_v1.sh` à `test_v6.sh` (pas `test_load_distribution.sh`)
+- Ajouter aussi `test_idempotence.sh` pour R2
+
 ## Tests à implémenter
 
 ### V1 - Répartition de charge

@@ -1,6 +1,6 @@
 # Scripts SQL
 
-## Fichier à créer: `init_data.sql`
+## Fichier à créer: `init.sql` (**PostgreSQL, pas MySQL**)
 
 ### Objectif
 Générer **50 000 candidats** avec leurs résultats d'examens.
@@ -31,7 +31,16 @@ CREATE TABLE candidats (
 - Prénoms: Abdoulaye, Aminata, Ibrahim, Fatimata, Moussa, etc.
 
 ### Méthode de génération
-Utiliser une procédure stockée MySQL pour générer les données rapidement.
+Utiliser **`generate_series`** de PostgreSQL pour générer les 50 000 candidats.
+
+**Exemple :**
+```sql
+INSERT INTO candidats (matricule, nom, prenom, resultat, moyenne, mention)
+SELECT 
+    'BF2024' || LPAD(i::TEXT, 5, '0'),
+    -- ... génération des données
+FROM generate_series(1, 50000) AS i;
+```
 
 ### Performance
 - Désactiver temporairement les contraintes pendant l'insertion

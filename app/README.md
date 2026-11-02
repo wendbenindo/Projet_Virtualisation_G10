@@ -8,8 +8,9 @@ Application web simple (<100 lignes) pour consulter les résultats d'examens.
 ### Fichier: `app.py`
 
 **Endpoints requis:**
-- `GET /health` - Healthcheck pour HAProxy
+- `GET /sante` - Healthcheck pour HAProxy (**pas /health**)
 - `GET /resultat?matricule=XXXXX` - Consultation résultat
+- `GET /info` - Informations sur le serveur
 
 **Retour:** JSON uniquement (pas de templates HTML)
 
@@ -32,7 +33,9 @@ Application web simple (<100 lignes) pour consulter les résultats d'examens.
 ## Dépendances Python
 - Flask
 - python-dotenv
-- mysqlclient
+- psycopg2 (ou psycopg2-binary) - **PostgreSQL, pas MySQL**
 
 ## Configuration
-Les credentials de base de données sont dans `.env` (pas dans le code !).
+- Les credentials sont dans `.env` (créé automatiquement par les scripts)
+- L'application doit reprendre automatiquement si la base est absente
+- Port PostgreSQL : **5432**

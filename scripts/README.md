@@ -4,7 +4,7 @@ Scripts shell exécutés par Vagrant lors du `vagrant up`.
 
 ## Fichiers à créer
 
-### 1. `load_balancer.sh`
+### 1. `lb.sh`
 **Machine:** lb1  
 **Rôle:** Installer et configurer HAProxy
 
@@ -25,26 +25,36 @@ Scripts shell exécutés par Vagrant lors du `vagrant up`.
 - Créer un service systemd
 - Démarrer l'application sur le port 5000
 
-### 3. `db_master.sh`
+### 3. `bdd.sh`
 **Machine:** bdd1  
-**Rôle:** Configurer MySQL Master
+**Rôle:** Configurer PostgreSQL Master
 
 **Tâches:**
-- Installer MySQL
-- Configurer la réplication (server-id=1, log_bin)
+- Installer **PostgreSQL** (pas MySQL)
+- Configurer pour la réplication en flux
+- Port **5432**
 - Créer la base de données `resultats_bf`
-- Importer les données SQL (`sql/init_data.sql`)
+- Importer les données SQL (`sql/init.sql`)
 - Créer les utilisateurs (app, réplication)
 
-### 4. `db_slave.sh`
+### 4. `replique.sh`
 **Machine:** bdd2  
-**Rôle:** Configurer MySQL Slave
+**Rôle:** Configurer PostgreSQL Réplique
 
 **Tâches:**
-- Installer MySQL
-- Configurer en slave (server-id=2, relay-log, read_only)
+- Installer PostgreSQL
+- Configurer en réplique (streaming replication)
 - Se connecter au master et démarrer la réplication
 - Vérifier le statut de la réplication
+
+### 5. `bascule.sh`
+**Machine:** À exécuter manuellement
+**Rôle:** Script de basculement automatique
+
+**Tâches:**
+- Promouvoir bdd2 en master
+- Reconfigurer les app pour utiliser bdd2
+- Chronométrer le temps de bascule
 
 ## Variables d'environnement disponibles
 Les scripts reçoivent des variables depuis le Vagrantfile:
