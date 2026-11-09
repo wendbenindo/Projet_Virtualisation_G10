@@ -1,46 +1,39 @@
+
 # Vagrant
 .vagrant/
-
-# Configuration générée
-config/noeuds.yml
-
-# Secrets
-.env
-
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-*.egg-info/
-dist/
-build/
-venv/
-env/
-
-# Logs
-*.log
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Documents (sujet, brouillons)
-#*.pdf
-#*.docx
-#*.doc
-#*.pptx
-#*.ppt
-#*.xlsx
-#*.xls
+*.box
 
 # Fichiers temporaires
-*~
-*.swp
-*.swo
+*.log
 *.tmp
-.idea/
+*.swp
+*.bak
+*~
+
+# Environnements et caches
+__pycache__/
+*.pyc
+.cache/
+
+# Fichiers générés localement
+*.generated
+*.local
+
+# IDE
 .vscode/
-1.pdf
-1.docx
+.idea/
+
+# Système Windows
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Clés privées et secrets
+*.pem
+*.key
+.env
+.env.*
+
+# Exceptions pour les exemples de configuration
+!.env.example
+
